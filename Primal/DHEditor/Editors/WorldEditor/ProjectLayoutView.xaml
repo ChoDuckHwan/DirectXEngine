@@ -7,7 +7,7 @@
              xmlns:gameProject="clr-namespace:DHEditor.GameProject"
              xmlns:proj ="clr-namespace:DHEditor.GameProject"
              mc:Ignorable="d" 
-             d:DataContext="{d:DesignInstance Type=proj:Project}"
+             d:DataContext="{d:DesignInstance Type=proj:Project, IsDesignTimeCreatable=True}"
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
     <Grid.RowDefinitions>
@@ -16,7 +16,7 @@
     </Grid.RowDefinitions>
     <Button Content="Add Scene" Width="96" VerticalAlignment="Center" Focusable="False"
             Grid.Row="0" HorizontalAlignment="Left" Margin="20,0,0,0"
-            Command="{Binding AddSceneCommand}"/>
+            Command="{Binding AddScene}"/>
     <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
         <ItemsControl ItemsSource="{Binding Scenes}">
             <ItemsControl.ItemsPanel>
@@ -30,9 +30,9 @@
                         <Expander.Header>
                             <Grid>
                                 <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="{Binding Name}" Style="{StaticResource LightTextBlockStyle}"/>
+                                    <TextBlock Text="{Binding Name}"/>
                                     <Button Content="Remove"
-                                            Command="{Binding DataContext.RemoveSceneCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                            Command="{Binding DataContext.RemoveScene, RelativeSource={RelativeSource AncestorType=UserControl}}"
                                             CommandParameter="{Binding}" Margin="20,0" Focusable="False"/>
                                     <Button Content="+" IsEnabled="{Binding IsActive}"
                                             Click="OnAddGameEntity_Button_Click"/>

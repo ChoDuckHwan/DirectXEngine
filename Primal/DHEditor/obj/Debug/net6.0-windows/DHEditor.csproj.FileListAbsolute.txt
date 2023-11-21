@@ -33,3 +33,5 @@ I:\DirectXEngine\Primal\DHEditor\obj\Debug\net6.0-windows\Editors\WorldEditor\Pr
 I:\DirectXEngine\Primal\DHEditor\obj\Debug\net6.0-windows\Dictionaries\ControlTemplates.g.cs
 I:\DirectXEngine\Primal\DHEditor\obj\Debug\net6.0-windows\Dictionaries\ControlTemplates.baml
 I:\DirectXEngine\Primal\DHEditor\obj\Debug\net6.0-windows\Dictionaries\EditorColors.baml
+I:\DirectXEngine\Primal\DHEditor\obj\Debug\net6.0-windows\Utilities\UndoRedoView.g.cs
+I:\DirectXEngine\Primal\DHEditor\obj\Debug\net6.0-windows\Utilities\UndoRedoView.baml

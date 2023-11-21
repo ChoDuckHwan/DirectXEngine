@@ -30,7 +30,7 @@ namespace DHEditor.GameProject
 
         public Scene(Project project, string name)
         {
-            Debug.Assert(Project != null);
+            Debug.Assert(project != null);
             Project = project;
             Name = name;
         }
