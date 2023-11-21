@@ -6,7 +6,7 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PrimalEditor.GameProject
+namespace DHEditor.GameProject
 {
     [DataContract]
     public class Scene : ViewModelBase
@@ -33,6 +33,21 @@ namespace PrimalEditor.GameProject
             Debug.Assert(Project != null);
             Project = project;
             Name = name;
+        }
+
+        private bool _isActive;
+        [DataMember]
+        public bool IsActive
+        {
+            get => _isActive;
+            set
+            {
+                if (_isActive != value)
+                {
+                    _isActive = value;
+                    OnPropertyChanged(nameof(IsActive));
+                }
+            }
         }
     }
 }

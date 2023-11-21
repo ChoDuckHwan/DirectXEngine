@@ -8,9 +8,10 @@ using System.Runtime.CompilerServices;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
-using PrimalEditor.Utilities;
+using DHEditor.Utilities;
+using DHEditor.GameProject;
 
-namespace PrimalEditor.GameProject
+namespace DHEditor.GameProject
 {
     [DataContract]
     public class ProjectData
@@ -88,7 +89,7 @@ namespace PrimalEditor.GameProject
 
             WriteProjectData();
 
-            return null;
+            return Project.Load(project.FullPath);
         }
 
         static OpenProject()

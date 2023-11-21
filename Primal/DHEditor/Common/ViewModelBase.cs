@@ -6,7 +6,7 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PrimalEditor
+namespace DHEditor
 {
     [DataContract(IsReference = true)]
     public class ViewModelBase : INotifyPropertyChanged

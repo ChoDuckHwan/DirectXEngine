@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace PrimalEditor.GameProject
+namespace DHEditor.GameProject
 {
     /// <summary>
     /// OpenProject.xaml에 대한 상호 작용 논리
@@ -23,16 +23,36 @@ namespace PrimalEditor.GameProject
         public OpenProjectView()
         {
             InitializeComponent();
+
+            Loaded += (s, e) =>
+            {
+                var item = projectsListBox.ItemContainerGenerator
+                    .ContainerFromIndex(projectsListBox.SelectedIndex) as ListBoxItem;
+                item?.Focus();
+            };
         }
 
-        //private void OnListBoxItem_Mouse_DoubleClick(object sender, MouseButtonEventArgs e)
-        //{
-        //    throw new NotImplementedException();
-        //}
+        private void OnListBoxItem_Mouse_DoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            OpenSelectedProject();
+        }
 
         private void OnOpen_Button_Click(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            OpenSelectedProject();
+        }
+        private void OpenSelectedProject()
+        {
+            var project = OpenProject.Open(projectsListBox.SelectedItem as ProjectData);
+            bool dialogResult = false;
+            var win = Window.GetWindow(this);
+            if (project != null)
+            {
+                dialogResult = true;
+                win.DataContext = project;
+            }
+            win.DialogResult = dialogResult;
+            win.Close();
         }
     }
 }

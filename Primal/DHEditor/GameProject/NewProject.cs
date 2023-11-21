@@ -13,10 +13,10 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using PrimalEditor;
-using PrimalEditor.Utilities;
+using DHEditor;
+using DHEditor.Utilities;
 
-namespace PrimalEditor.GameProject
+namespace DHEditor.GameProject
 {
     [DataContract]
     public class ProjectTemplate

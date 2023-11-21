@@ -1,15 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Dynamic;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Runtime.Serialization;
-using PrimalEditor;
+using DHEditor;
 using System.Text;
-using PrimalEditor.Utilities;
+using DHEditor.Utilities;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Diagnostics;
+using System.IO;
 
-namespace PrimalEditor.GameProject
+namespace DHEditor.GameProject
 {
     [DataContract(Name = "Game")]
     public class Project : ViewModelBase
@@ -17,22 +21,79 @@ namespace PrimalEditor.GameProject
         public static string Extension { get; } = ".primal";
 
         [DataMember]
-        public string Name { get; private set; }
+        public string Name { get; private set; } = "New Project";
 
         [DataMember]
         public string Path { get; private set; }
-        public string FullPath => $"{Path}{Name}{Extension}";
+        public string FullPath => $@"{Path}{Name}{Extension}";
+        public string Solution => $@"{Path}{Name}.sln";
+        public string ContentPath => $@"{Path}Content\";
+        public string TempFolder => $@"{Path}.Primal\Temp\";
 
-        [DataMember(Name = "Scenes")]
-        private ObservableCollection<Scene> _scene = new ObservableCollection<Scene>();
-        public ReadOnlyObservableCollection<Scene> Scenes { get; }
+        [DataMember(Name = nameof(Scenes))]
+        private readonly ObservableCollection<Scene> _Scenes = new();
+        public ReadOnlyObservableCollection<Scene> Scenes { get; private set; }
+
+        private Scene _activeScene;
+        public Scene ActiveScene
+        {
+            get => _activeScene;
+            set
+            {
+                if (_activeScene != value)
+                {
+                    _activeScene = value;
+                    OnPropertyChanged(nameof(ActiveScene));
+                }
+            }
+        }
+
+        public static Project Current => Application.Current.MainWindow?.DataContext as Project;
+
+        [OnDeserialized]
+        private async void OnDeserialized(StreamingContext context)
+        {
+            if (_Scenes != null)
+            {
+                Scenes = new ReadOnlyObservableCollection<Scene>(_Scenes);
+                OnPropertyChanged(nameof(Scenes));
+            }
+
+            ActiveScene = _Scenes.FirstOrDefault(x => x.IsActive);
+            Debug.Assert(ActiveScene != null);
+
+            //await BuildGameCodeDLL(false);
+
+            //SetCommands();
+        }
 
         public Project(string name, string path)
         {
             Name = name;
             Path = path;
 
-            _scene.Add(new Scene(this, "Default Scene"));
+            _Scenes.Add(new Scene(this, "Default Scene"));
+        }
+
+        public void Unload()
+        {
+            //UnloadGameCodeDLL();
+            //VisualStudio.CloseVisualStudio();
+            //UndoRedo.Reset();
+            //Logger.Clear();
+            //DeleteTempFolder();
+        }
+
+        public static Project Load(string file)
+        {
+            Debug.Assert(File.Exists(file));
+            return Serializer.FromFile<Project>(file);
+        }
+
+        private static void Save(Project project)
+        {
+            Serializer.ToFile(project, project.FullPath);
+            Logger.Log(MessageType.Info, $"Project saved to {project.FullPath}");
         }
     }
 }

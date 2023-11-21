@@ -26,3 +26,10 @@ I:\DirectXEngine\Primal\DHEditor\obj\Debug\net6.0-windows\GameProject\NewProject
 I:\DirectXEngine\Primal\DHEditor\obj\Debug\net6.0-windows\GameProject\OpenProjectView.baml
 I:\DirectXEngine\Primal\DHEditor\obj\Debug\net6.0-windows\GameProject\ProjectBrowserDialog.baml
 I:\DirectXEngine\Primal\DHEditor\bin\Debug\net6.0-windows\DHEditor.dll.config
+I:\DirectXEngine\Primal\DHEditor\obj\Debug\net6.0-windows\Editors\WorldEditor\WorldEditorView.g.cs
+I:\DirectXEngine\Primal\DHEditor\obj\Debug\net6.0-windows\Editors\WorldEditor\WorldEditorView.baml
+I:\DirectXEngine\Primal\DHEditor\obj\Debug\net6.0-windows\Editors\WorldEditor\ProjectLayoutView.g.cs
+I:\DirectXEngine\Primal\DHEditor\obj\Debug\net6.0-windows\Editors\WorldEditor\ProjectLayoutView.baml
+I:\DirectXEngine\Primal\DHEditor\obj\Debug\net6.0-windows\Dictionaries\ControlTemplates.g.cs
+I:\DirectXEngine\Primal\DHEditor\obj\Debug\net6.0-windows\Dictionaries\ControlTemplates.baml
+I:\DirectXEngine\Primal\DHEditor\obj\Debug\net6.0-windows\Dictionaries\EditorColors.baml

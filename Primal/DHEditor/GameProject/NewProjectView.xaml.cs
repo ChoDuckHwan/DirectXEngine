@@ -13,8 +13,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DHEditor.Utilities;
+using DHEditor.GameProject;
 
-namespace PrimalEditor.GameProject
+namespace DHEditor.GameProject
 {
     /// <summary>
     /// NewProjectView.xaml에 대한 상호 작용 논리
@@ -37,6 +39,7 @@ namespace PrimalEditor.GameProject
             {
                 dialogResult = true;
                 var project = OpenProject.Open(new ProjectData(){ProjectName = vm.ProjectName, ProjectPath = projectPath});
+                win.DataContext = project;
             }
 
             win.DialogResult = dialogResult;

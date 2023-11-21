@@ -1,5 +1,4 @@
-﻿using PrimalEditor.GameProject;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -14,6 +13,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DHEditor.Utilities;
+using DHEditor.GameProject;
+using System.ComponentModel;
 
 namespace DHEditor
 {
@@ -26,14 +28,35 @@ namespace DHEditor
         {
             InitializeComponent();
             Loaded += OnMainWindowLoaded;
+            Closing += OnMainWindowClosing;
         }
 
         private void OnMainWindowLoaded(Object sender, RoutedEventArgs e)
         {
             Loaded -= OnMainWindowLoaded;
+            //GetEnginePath();
             OpenProjectBrowserDialog();
         }
 
+        private void OnMainWindowClosing(object sender, CancelEventArgs e)
+        {
+            if (DataContext == null)
+            {
+                e.Cancel = true;
+                Application.Current.MainWindow.Hide();
+                OpenProjectBrowserDialog();
+                if (DataContext != null)
+                {
+                    Application.Current.MainWindow.Show();
+                }
+            }
+            else
+            {
+                Closing -= OnMainWindowClosing;
+                Project.Current?.Unload();
+                DataContext = null;
+            }
+        }
         private void OpenProjectBrowserDialog()
         {
             var projectBrowser = new ProjectBrowserDialog();
@@ -43,11 +66,11 @@ namespace DHEditor
             }
             else
             {
-                //Project.Current?.Unload();
-                //var project = projectBrowser.DataContext as Project;
-                //Debug.Assert(project != null);
+                Project.Current?.Unload();
+                var project = projectBrowser.DataContext as Project;
+                Debug.Assert(project != null);
                 //ContentWatcher.Reset(project.ContentPath, project.Path);
-                //DataContext = project;
+                DataContext = project;
             }
         }
     }
