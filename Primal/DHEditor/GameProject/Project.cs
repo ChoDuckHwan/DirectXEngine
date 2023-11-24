@@ -26,7 +26,7 @@ namespace DHEditor.GameProject
 
         [DataMember]
         public string Path { get; private set; }
-        public string FullPath => $@"{Path}{Name}{Extension}";
+        public string FullPath => $@"{Path}{Name}\{Name}{Extension}";
         public string Solution => $@"{Path}{Name}.sln";
         public string ContentPath => $@"{Path}Content\";
         public string TempFolder => $@"{Path}.Primal\Temp\";
@@ -52,19 +52,20 @@ namespace DHEditor.GameProject
         public static Project Current => Application.Current.MainWindow?.DataContext as Project;
 
         public static UndoRedo UndoRedo { get; private set; } = new UndoRedo();
-        public ICommand Undo { get; private set; }
-        public ICommand Redo { get; private set; }
+        public ICommand UndoCommand { get; private set; }
+        public ICommand RedoCommand { get; private set; }
 
-        public ICommand AddScene { get; private set; }
-        public ICommand RemoveScene { get; private set; }
+        public ICommand AddSceneCommand { get; private set; }
+        public ICommand RemoveSceneCommand { get; private set; }
+        public ICommand SaveCommand { get; private set; }
 
-        private void AddSceneInternal(string sceneName)
+        private void AddScene(string sceneName)
         {
             Debug.Assert(!string.IsNullOrEmpty(sceneName.Trim()));
             _Scenes.Add(new Scene(this, sceneName));
         }
 
-        private void RemoveSceneInternal(Scene scene)
+        private void RemoveScene(Scene scene)
         {
             Debug.Assert(_Scenes.Contains(scene));
             _Scenes.Remove(scene);
@@ -81,31 +82,31 @@ namespace DHEditor.GameProject
 
             ActiveScene = _Scenes.FirstOrDefault(x => x.IsActive);
             Debug.Assert(ActiveScene != null);
-            AddScene = new RelayCommand<object>(x =>
+            AddSceneCommand = new RelayCommand<object>(x =>
             {
-                AddSceneInternal($"New Scene{_Scenes.Count}");
+                AddScene($"New Scene{_Scenes.Count}");
                 var newScene = _Scenes.Last();
                 var indexScene = _Scenes.Count - 1;
                 UndoRedo.Add(new UndoRedoAction(
-                    () => RemoveSceneInternal(newScene),
+                    () => RemoveScene(newScene),
                     () => _Scenes.Insert(indexScene, newScene),
                     $"Add {newScene.Name}"));
             });
             //await BuildGameCodeDLL(false);
-            RemoveScene = new RelayCommand<Scene>(x =>
+            RemoveSceneCommand = new RelayCommand<Scene>(x =>
             {
                 var indexScene = _Scenes.IndexOf(x);
-                RemoveSceneInternal(x);
+                RemoveScene(x);
                 UndoRedo.Add(new UndoRedoAction(
                     () => _Scenes.Insert(indexScene, x),
-                    () => RemoveSceneInternal(x),
+                    () => RemoveScene(x),
                     $"Remove {x.Name}"));
             }, x=> !x.IsActive);
             //SetCommands();
 
-            Undo = new RelayCommand<object>(x => UndoRedo.Undo());
-            Redo = new RelayCommand<object>(x => UndoRedo.Redo());
-
+            UndoCommand = new RelayCommand<object>(x => UndoRedo.Undo());
+            RedoCommand = new RelayCommand<object>(x => UndoRedo.Redo());
+            SaveCommand = new RelayCommand<object>(x => Save(this));
         }
 
         public Project(string name, string path)
@@ -120,8 +121,8 @@ namespace DHEditor.GameProject
         {
             //UnloadGameCodeDLL();
             //VisualStudio.CloseVisualStudio();
-            //UndoRedo.Reset();
-            //Logger.Clear();
+            UndoRedo.Reset();
+            Logger.Clear();
             //DeleteTempFolder();
         }
 

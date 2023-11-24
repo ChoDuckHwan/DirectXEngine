@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DHEditor.Utilities;
 using DHEditor.GameProject;
+using System.Windows.Shapes;
 
 namespace DHEditor.GameProject
 {
@@ -104,8 +105,9 @@ namespace DHEditor.GameProject
             catch (Exception ex)
             {
                 Debug.WriteLine(ex.Message);
-                Console.WriteLine(ex);
+                Logger.Log(MessageType.Error, $"failed to Read Project Data {_projectDataPath}");
                 throw;
+
             }
         }
     }

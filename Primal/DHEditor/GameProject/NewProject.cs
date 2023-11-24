@@ -181,6 +181,8 @@ namespace DHEditor.GameProject
             catch (Exception e)
             {
                 Console.WriteLine(e);
+                Logger.Log(MessageType.Error, $"Failed to create project template {ProjectName}");
+
                 return string.Empty;
                 throw;
             }
@@ -211,6 +213,7 @@ namespace DHEditor.GameProject
             catch (Exception ex)
             {
                 Debug.WriteLine(ex.Message);
+                Logger.Log(MessageType.Error, $"failed to NewProject Construct template");
                 throw;
             }
         }

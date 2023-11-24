@@ -15,12 +15,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="FirstPerson1\**" />
     <Compile Remove="NewProject1\**" />
     <Compile Remove="ProjectTemplates\**" />
+    <EmbeddedResource Remove="FirstPerson1\**" />
     <EmbeddedResource Remove="NewProject1\**" />
     <EmbeddedResource Remove="ProjectTemplates\**" />
+    <None Remove="FirstPerson1\**" />
     <None Remove="NewProject1\**" />
     <None Remove="ProjectTemplates\**" />
+    <Page Remove="FirstPerson1\**" />
     <Page Remove="NewProject1\**" />
     <Page Remove="ProjectTemplates\**" />
   </ItemGroup>

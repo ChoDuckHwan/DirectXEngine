@@ -45,7 +45,7 @@ namespace DHEditor.Utilities
                 () => instance.GetType().GetProperty(property).SetValue(instance, redoValue),
                 name)
         { }
-
+        
     }
 
     public class UndoRedo

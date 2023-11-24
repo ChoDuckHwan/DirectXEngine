@@ -35,3 +35,8 @@ I:\DirectXEngine\Primal\DHEditor\obj\Debug\net6.0-windows\Dictionaries\ControlTe
 I:\DirectXEngine\Primal\DHEditor\obj\Debug\net6.0-windows\Dictionaries\EditorColors.baml
 I:\DirectXEngine\Primal\DHEditor\obj\Debug\net6.0-windows\Utilities\UndoRedoView.g.cs
 I:\DirectXEngine\Primal\DHEditor\obj\Debug\net6.0-windows\Utilities\UndoRedoView.baml
+I:\DirectXEngine\Primal\DHEditor\obj\Debug\net6.0-windows\Editors\WorldEditor\GameEntityView.g.cs
+I:\DirectXEngine\Primal\DHEditor\obj\Debug\net6.0-windows\Editors\WorldEditor\GameEntityView.baml
+I:\DirectXEngine\Primal\DHEditor\obj\Debug\net6.0-windows\App.baml
+I:\DirectXEngine\Primal\DHEditor\obj\Debug\net6.0-windows\Utilities\LoggerView.g.cs
+I:\DirectXEngine\Primal\DHEditor\obj\Debug\net6.0-windows\Utilities\LoggerView.baml

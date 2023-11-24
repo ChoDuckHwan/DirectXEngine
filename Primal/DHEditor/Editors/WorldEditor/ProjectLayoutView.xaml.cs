@@ -12,7 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DHEditor.Components;
 using DHEditor.GameProject;
+using DHEditor.Utilities;
 
 namespace DHEditor.Editors
 {
@@ -28,12 +30,43 @@ namespace DHEditor.Editors
 
         private void OnAddGameEntity_Button_Click(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            var btn = sender as Button;
+            var vm = btn.DataContext as Scene;
+            vm.AddGameEntityCommand.Execute(new GameEntity(vm) { Name = "Empty Game Entity" });
         }
 
         private void OnGameEntities_ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            throw new NotImplementedException();
+            GameEntityView.Instance.DataContext = null;
+            var ListBox = sender as ListBox;
+
+            if (e.AddedItems.Count > 0)
+            {
+                GameEntityView.Instance.DataContext = ListBox.SelectedItems[0];
+            }
+            var newSelection = ListBox.SelectedItems.Cast<GameEntity>().ToList();
+
+            var previousSelection = newSelection.Except(e.AddedItems.Cast<GameEntity>()).Concat(e.RemovedItems.Cast<GameEntity>()).ToList();
+
+            Project.UndoRedo.Add(new UndoRedoAction(
+                () =>
+                {
+                    ListBox.UnselectAll();
+                    previousSelection.ForEach(x => (ListBox.ItemContainerGenerator.ContainerFromItem(x) as ListBoxItem).IsSelected = true);
+                },
+                () =>
+                {
+                    ListBox.UnselectAll();
+                    newSelection.ForEach(x => (ListBox.ItemContainerGenerator.ContainerFromItem(x) as ListBoxItem).IsSelected = true);
+                },
+                "Selection Changed"));
+
+            //MSGameEntity msEntity = null;
+            //if (newSelection.Any())
+            //{
+            //    msEntity = new MSGameEntity(newSelection);
+            //}
+            //GameEntityView.Instance.DataContext = msEntity;
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DHEditor.GameProject;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
@@ -24,6 +25,8 @@ namespace DHEditor.Utilities
             {
                 Debug.WriteLine(e);
                 //TODO log error
+                Logger.Log(MessageType.Error, $"Failed to Serialize {instatnce} to {path}");
+
                 throw;
             }
         }
@@ -42,6 +45,7 @@ namespace DHEditor.Utilities
             {
                 Debug.WriteLine(e.Message);
                 //TODO log error
+                Logger.Log(MessageType.Error, $"Failed to deserialize {path}");
                 throw;
                 return default(T);
             }
