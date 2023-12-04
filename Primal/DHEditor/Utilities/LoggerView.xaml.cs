@@ -23,6 +23,24 @@ namespace DHEditor.Utilities
         public LoggerView()
         {
             InitializeComponent();
+            //Logger.Log(MessageType.Info, "Info");
+            //Logger.Log(MessageType.Error, "Error");
+            //Logger.Log(MessageType.Warning, "Warning");
+
+        }
+
+        private void OnClear_Button_Click(object sender, RoutedEventArgs e)
+        {
+            Logger.Clear();
+        }
+
+        private void OnMessageFilter_Button_Click(object sender, RoutedEventArgs e)
+        {
+            var filter = 0x0;
+            if (toggleInfo.IsChecked == true) filter |= (int)MessageType.Info;
+            if (toggleWarnings.IsChecked == true) filter |= (int)MessageType.Warning;
+            if (toggleErrors.IsChecked == true) filter |= (int)MessageType.Error;
+            Logger.SetMessageFilter(filter);
         }
     }
 }

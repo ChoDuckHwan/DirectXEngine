@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace DHEditor.Components
 {
     [DataContract]
-    public class Transform : Component
+    class Transform : Component
     {
 
         [DataMember]

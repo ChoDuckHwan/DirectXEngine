@@ -13,7 +13,7 @@ using DHEditor.Utilities;
 namespace DHEditor.GameProject
 {
     [DataContract]
-    public class Scene : ViewModelBase
+    class Scene : ViewModelBase
     {
         private string _name;
         [DataMember]
