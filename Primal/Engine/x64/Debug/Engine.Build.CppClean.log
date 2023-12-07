@@ -1,13 +1,10 @@
+i:\directxengine\primal\x64\debug\engine.lib
+i:\directxengine\primal\engine\x64\debug\engine.obj
+i:\directxengine\primal\engine\x64\debug\pch.obj
 i:\directxengine\primal\engine\x64\debug\engine.pch
 i:\directxengine\primal\x64\debug\engine.pdb
-i:\directxengine\primal\x64\debug\engine.idb
-i:\directxengine\primal\engine\x64\debug\pch.obj
-i:\directxengine\primal\engine\x64\debug\engine.obj
-i:\directxengine\primal\x64\debug\engine.lib
 i:\directxengine\primal\engine\x64\debug\engine.tlog\cl.command.1.tlog
 i:\directxengine\primal\engine\x64\debug\engine.tlog\cl.items.tlog
-i:\directxengine\primal\engine\x64\debug\engine.tlog\cl.read.1.tlog
-i:\directxengine\primal\engine\x64\debug\engine.tlog\cl.write.1.tlog
 i:\directxengine\primal\engine\x64\debug\engine.tlog\lib-link.read.1.tlog
 i:\directxengine\primal\engine\x64\debug\engine.tlog\lib-link.write.1.tlog
 i:\directxengine\primal\engine\x64\debug\engine.tlog\lib.command.1.tlog

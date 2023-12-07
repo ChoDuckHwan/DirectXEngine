@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Primal",
+    "\\Primal\\Engine",
+    "\\Primal\\Engine\\EngineAPI"
   ],
-  "SelectedNode": "\\Primal.sln",
+  "SelectedNode": "\\Primal\\Primal.sln",
   "PreviewInSolutionExplorer": false
 }
