@@ -1,7 +1,8 @@
 #pragma once
 
-#include "Components/ComponentsCommon.h"
 #include "EngineAPI/TransformComponent.h"
+#include "Components/ComponentsCommon.h"
+
 namespace primal::game_entity
 {
 	DEFINE_TYPED_ID(entity_id);

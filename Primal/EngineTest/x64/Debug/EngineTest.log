@@ -1,4 +1,1 @@
-﻿  Main.cpp
-I:\DirectXEngine\Primal\EngineTest\TestEntityComponents.h(66,21): warning C4311: '형식 캐스트': 'int (__cdecl *)(void)'에서 'u32'(으)로 포인터가 잘립니다.
-I:\DirectXEngine\Primal\EngineTest\TestEntityComponents.h(66,21): warning C4302: '형식 캐스트': 'int (__cdecl *)(void)'에서 'u32'(으)로 잘립니다.
-  EngineTest.vcxproj -> I:\DirectXEngine\Primal\x64\Debug\EngineTest.exe
+﻿  EngineTest.vcxproj -> I:\DirectXEngine\Primal\x64\Debug\EngineTest.exe

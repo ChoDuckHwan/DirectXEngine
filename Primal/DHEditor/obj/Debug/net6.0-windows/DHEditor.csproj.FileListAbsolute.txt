@@ -40,3 +40,11 @@ I:\DirectXEngine\Primal\DHEditor\obj\Debug\net6.0-windows\Editors\WorldEditor\Ga
 I:\DirectXEngine\Primal\DHEditor\obj\Debug\net6.0-windows\App.baml
 I:\DirectXEngine\Primal\DHEditor\obj\Debug\net6.0-windows\Utilities\LoggerView.g.cs
 I:\DirectXEngine\Primal\DHEditor\obj\Debug\net6.0-windows\Utilities\LoggerView.baml
+I:\DirectXEngine\Primal\DHEditor\obj\Debug\net6.0-windows\DHEditor.Properties.Resources.resources
+I:\DirectXEngine\Primal\DHEditor\obj\Debug\net6.0-windows\DHEditor.csproj.GenerateResource.cache
+I:\DirectXEngine\Primal\x64\DebugEditor\Debug\net6.0-windows\DHEditor.exe
+I:\DirectXEngine\Primal\x64\DebugEditor\Debug\net6.0-windows\DHEditor.dll.config
+I:\DirectXEngine\Primal\x64\DebugEditor\Debug\net6.0-windows\DHEditor.deps.json
+I:\DirectXEngine\Primal\x64\DebugEditor\Debug\net6.0-windows\DHEditor.runtimeconfig.json
+I:\DirectXEngine\Primal\x64\DebugEditor\Debug\net6.0-windows\DHEditor.dll
+I:\DirectXEngine\Primal\x64\DebugEditor\Debug\net6.0-windows\DHEditor.pdb

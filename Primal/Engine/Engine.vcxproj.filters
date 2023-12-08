@@ -28,7 +28,7 @@
     <ClInclude Include="EngineAPI\TransformComponent.h">
       <Filter>EngineAPI</Filter>
     </ClInclude>
-    <ClInclude Include="MathTypes.h">
+    <ClInclude Include="Utilities\MathTypes.h">
       <Filter>Utilities</Filter>
     </ClInclude>
   </ItemGroup>
@@ -50,7 +50,7 @@
     <ClCompile Include="Components\Entity.cpp">
       <Filter>Components</Filter>
     </ClCompile>
-    <ClCompile Include="Transform.cpp">
+    <ClCompile Include="Components\Transform.cpp">
       <Filter>Components</Filter>
     </ClCompile>
   </ItemGroup>

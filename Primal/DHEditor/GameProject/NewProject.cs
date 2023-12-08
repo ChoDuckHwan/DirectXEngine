@@ -39,7 +39,7 @@ namespace DHEditor.GameProject
     }
     class NewProject : ViewModelBase
     {
-        private readonly string _templatePath = @"..\..\..\ProjectTemplates\";
+        private readonly string _templatePath = @"..\..\DHEditor\ProjectTemplates\";
         private string _projectName ="";
 
         public string ProjectName
@@ -56,7 +56,7 @@ namespace DHEditor.GameProject
             }
         }
 
-        private string _projectpath = Directory.GetParent(System.Environment.CurrentDirectory).Parent.Parent.FullName + @"\";
+        private string _projectpath = Directory.GetParent(System.Environment.CurrentDirectory).Parent.Parent.FullName + @"\DHEditor\";
         
         public string ProjectPath
         {
