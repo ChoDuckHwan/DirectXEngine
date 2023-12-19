@@ -32,7 +32,7 @@ namespace DHEditor.Editors
         {
             Loaded -= OnWorldEditorViewLoaded;
             Focus();
-            ((INotifyCollectionChanged)Project.UndoRedo.UndoList).CollectionChanged += (sender, e) => Focus();
+            //((INotifyCollectionChanged)Project.UndoRedo.UndoList).CollectionChanged += (sender, e) => Focus();
         }
     }
 }

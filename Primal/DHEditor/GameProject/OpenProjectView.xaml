@@ -9,7 +9,7 @@
     <UserControl.DataContext>
         <local:OpenProject/>
     </UserControl.DataContext>
-    <Border CornerRadius="3" Width="700"
+    <Border CornerRadius="3" Width="700" Background="{StaticResource Editor.Window.GrayBrush1}"
         HorizontalAlignment="Center" Margin="0,30">
         <StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">

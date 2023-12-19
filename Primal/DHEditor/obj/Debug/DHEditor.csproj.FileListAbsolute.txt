@@ -48,3 +48,7 @@ I:\DirectXEngine\Primal\x64\Debug\DHEditor.deps.json
 I:\DirectXEngine\Primal\x64\Debug\DHEditor.runtimeconfig.json
 I:\DirectXEngine\Primal\x64\Debug\DHEditor.dll
 I:\DirectXEngine\Primal\x64\Debug\DHEditor.pdb
+I:\DirectXEngine\Primal\DHEditor\obj\Debug\Editors\WorldEditor\ComponentView.g.cs
+I:\DirectXEngine\Primal\DHEditor\obj\Debug\Editors\WorldEditor\TransformView.g.cs
+I:\DirectXEngine\Primal\DHEditor\obj\Debug\Editors\WorldEditor\ComponentView.baml
+I:\DirectXEngine\Primal\DHEditor\obj\Debug\Editors\WorldEditor\TransformView.baml

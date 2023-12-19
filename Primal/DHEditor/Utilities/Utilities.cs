@@ -23,8 +23,13 @@ namespace DHEditor.Utilities
 
         public static bool IsTheSameAs(this float? value, float? other)
         {
-            if(value.HasValue || !other.HasValue) return false;
+            if (!value.HasValue || !other.HasValue) return false;
             return Math.Abs(value.Value - other.Value) < Epsilon;
+        }
+
+        public static bool IsTheSameAs(this double value, double other)
+        {
+            return Math.Abs(value - other) < Epsilon;
         }
     }
 }

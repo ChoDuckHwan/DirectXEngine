@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:DHEditor"
         xmlns:editors="clr-namespace:DHEditor.Editors"
         mc:Ignorable="d" WindowStartupLocation="CenterScreen"
-        Title="MainWindow" Height="1080" Width="1920">
+        Title="MainWindow" Height="1080" Width="1920"
+        Style="{StaticResource PrimalWindowStyle}">
     <Grid>
         <editors:WorldEditorView/>
     </Grid>

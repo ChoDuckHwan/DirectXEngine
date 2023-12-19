@@ -11,4 +11,6 @@ FI:\DirectXEngine\Primal\DHEditor\GameProject\ProjectBrowserDialog.xaml;;
 FI:\DirectXEngine\Primal\DHEditor\MainWindow.xaml;;
 FI:\DirectXEngine\Primal\DHEditor\Utilities\LoggerView.xaml;;
 FI:\DirectXEngine\Primal\DHEditor\Utilities\UndoRedoView.xaml;;
+FI:\DirectXEngine\Primal\DHEditor\Editors\WorldEditor\ComponentView.xaml;;
+FI:\DirectXEngine\Primal\DHEditor\Editors\WorldEditor\TransformView.xaml;;
 
